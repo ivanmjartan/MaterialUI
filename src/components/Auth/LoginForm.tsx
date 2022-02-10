@@ -5,15 +5,17 @@ import { withFormik, FormikProps } from "formik";
 import { string, object } from "yup";
 
 import { backend } from "../../constants";
-import CustomLoading from "../CustomLoading";
-import Input from "../controls/Input";
-import Label from "../controls/Label";
-import Button from "../controls/Button";
+import SignInButton from "./SignInButton";
 
 import sharedStyles from "../../shared.module.scss";
 import styles from "./LoginForm.module.scss";
 
 import logoUri from "../../media/logo-new.png";
+import TextField from "@mui/material/TextField";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export interface FormValues {
     email: string;
@@ -31,74 +33,84 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
 
     return (
         <>
-            {loginError && <div className={styles.Error}>{loginError}</div>}
+            {loginError && <Snackbar
+                autoHideDuration={6000}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                open={Boolean(loginError)}
+            >
+                <Alert severity="error" >{loginError}</Alert>
+            </Snackbar>
+            }
             <form onSubmit={handleSubmit} className={cx(styles.Login, "s-login-form")}>
-                <div className={styles.LoginLogo}>
-                    <img src={logoUri} alt="GoodData" className={styles.LoginLogo} style={{ height: 70 }} />
-                </div>
-                <h2>
-                    Please sign in to the{" "}
-                    <a className={cx(sharedStyles.Link, sharedStyles.BreakWord)} href={backend}>
-                        {backend.replace(/https?:\/\//, "")}
-                    </a>{" "}
-                    domain
-                </h2>
-                <div className={styles.InputBlock}>
-                    <Label
-                        className={styles.Label}
-                        hasError={!!errors.email && touched.email}
-                        htmlFor="email"
-                    >
-                        E-mail
-                    </Label>
-                    <Input
-                        className={cx(styles.Input, "s-login-input-email")}
-                        hasError={!!errors.email && touched.email}
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        autoComplete="e-mail"
+                <Box sx={{
+                    width: "100%",
+                    textAlign: "center",
+                }}>
+                    <Box
+                        component="img"
+                        src={logoUri}
+                        alt="GoodData"
+                        sx={{
+                            height: 70,
+                            width: 70,
+                            textAlign: "center",
+                            marginBottom: "10px"
+                        }}
                     />
-                    {errors.email && touched.email && <div className={styles.Error}>{errors.email}</div>}
-                </div>
-                <div className={styles.InputBlock}>
-                    <Label
-                        className={styles.Label}
-                        hasError={!!errors.password && touched.password}
-                        htmlFor="password"
-                    >
-                        Password
-                    </Label>
-                    <Input
-                        className={cx(styles.Input, "s-login-input-password")}
-                        hasError={!!errors.password && touched.password}
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={values.password}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        autoComplete="password"
-                    />
-                    {errors.password && touched.password && (
-                        <div className={styles.Error}>{errors.password}</div>
-                    )}
-                </div>
-                <div className={styles.Action}>
-                    <Button type="submit" className={styles.SubmitButton} disabled={isSubmitting}>
-                        {isSubmitting ? (
-                            <>
-                                <CustomLoading inline height="auto" imageHeight="0.8em" />
-                                &emsp;Signing in...
-                            </>
-                        ) : (
-                            "Sign in"
-                        )}
-                    </Button>
-                </div>
+                </Box>
+
+                <Typography variant="h5" component="div" gutterBottom >
+                    <Box sx={{ fontWeight: 'bold' }}>
+                        Please sign in to the:
+                        <br />
+                        <a className={cx(sharedStyles.Link, sharedStyles.BreakWord)} href={backend}>
+                            {backend.replace(/https?:\/\//, "")}
+                        </a>{" "}
+                        domain
+                    </Box>
+                </Typography>
+
+
+                <TextField
+                    fullWidth
+                    error={!!errors.email && touched.email}
+                    type="email"
+                    id="email"
+                    name="email"
+                    label="E-mail"
+                    autoComplete="e-mail"
+                    variant="standard"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    helperText={(errors.email && touched.email) ? errors.email : null}
+                    sx={{
+                        marginBottom: "10px"
+                    }}
+                />
+
+
+                <TextField
+                    fullWidth
+                    error={!!errors.password && touched.password}
+                    id="password"
+                    label="Password"
+                    type="password"
+                    name="password"
+                    autoComplete="current-password"
+                    variant="standard"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    helperText={(errors.password && touched.password) ? errors.password : null}
+                    sx={{
+                        marginBottom: "10px"
+                    }}
+                />
+
+
+                <SignInButton isSubmitting={isSubmitting} />
+
             </form>
         </>
     );

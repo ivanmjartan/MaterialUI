@@ -7,47 +7,58 @@ import styles from "./Welcome.module.scss";
 
 import kpiUri from "../media/kpi.png";
 import successUri from "../media/success.svg";
+import { Box, Typography } from "@mui/material";
 
 const Code: React.FC = ({ children, ...restProps }) => (
     <code className={styles.code} {...restProps}>
         {children}
     </code>
 );
-const Pre: React.FC = ({ children, ...restProps }) => (
-    <pre className={styles.pre} {...restProps}>
+const Pre: React.FC = ({ children }) => (
+    <Box component="pre" sx={{ padding: "10px", borderLeft: "3px solid ", borderLeftColor: "secondary.main", color: "success.main"}}>
         {children}
-    </pre>
+    </Box>
 );
 
 const Welcome: React.FC = () => {
+
     return (
         <Page>
-            <div className={styles.Lead}>
-                <h1>
-                    <img src={successUri} alt="" />
-                    <br />
+            <Box sx={{ width: '100%', textAlign: "center" }}>
+                <Box
+                    component="img"
+                    src={successUri}
+                />
+                <Typography variant="h5" component="div" gutterBottom color="success.main">
                     Congratulations!
                     <br />
                     Your GoodData-powered app is created.
-                </h1>
-            </div>
+                </Typography>
+            </Box>
+            <br />
+            <Typography variant="h5" component="div" gutterBottom >
+                <Box sx={{ fontWeight: 'bold' }}>
+                    Your new GoodData-powered app is ready!
+                </Box>
+            </Typography>
 
-            <h2>Your new GoodData-powered app is ready!</h2>
-            <p>
+
+
+            <Typography variant="body1" gutterBottom >
                 Now, let’s take one more step and set up your home dashboard with a test headline report
                 widget. This will help verify that everything is set up correctly.
-            </p>
+            </Typography>
 
             <ol>
                 <li>
-                    <p>
+                    <Typography variant="body1" gutterBottom >
                         In <Code>/src/constants.ts</Code>, check that <Code>backend</Code> is set to your
                         domain URI. For example, <Code>https://secure.gooddata.com</Code> or{" "}
                         <Code>https://developer.na.gooddata.com</Code>.
-                    </p>
+                    </Typography>
                 </li>
                 <li>
-                    <p>
+                    <Typography variant="body1" gutterBottom >
                         In the root of the boilerplate, run <Code>yarn refresh-md</Code>, the terminal then
                         will prompt you to enter <Code>Username/Password</Code> and <Code>workspace</Code>
                         selection.
@@ -63,70 +74,102 @@ const Welcome: React.FC = () => {
                         The script will also print out a workspace ID for the project used for the generating.
                         You can use this value in <Code>/src/constants.ts</Code> to set the{" "}
                         <Code>workspace</Code> property.
-                    </p>
+                    </Typography>
                 </li>
                 <li>
-                    In <Code>Home.tsx</Code>, replace <Code>Place your content here</Code> with actual code.
-                    <p>
+                    <Typography variant="body1" gutterBottom >
+                        In <Code>Home.tsx</Code>, replace <Code>Place your content here</Code> with actual code.
+                    </Typography>
+                    <Typography variant="body1" gutterBottom >
                         For example, <Code> {`<InsightView insight={Md.Insights.Headline}/>`}</Code>. We
                         access the <Code>Headline</Code> identifier through the generated <Code>MD</Code>
                         objects.
                         <br />
                         The main benefit of utilizing the generated MD objects is that you have the access to
                         all MD objects, metrics and insights in the workspace that you selected.
-                    </p>
+                    </Typography>
                 </li>
                 <li>
-                    <p>
+                    <Typography variant="body1" gutterBottom >
                         In <Code>/src/routes/AppRouter.tsx</Code>, find the line that says{" "}
                         <Code>DELETE THIS LINE</Code>, and delete it.
                         <br />
                         This removes the redirect to this help page and sets up the default landing page
                         dashboard for your app.
-                    </p>
+                    </Typography>
                 </li>
                 <li>
-                    Log in to your app at <Link to="/login">/login</Link>.
+                    <Typography variant="body1" gutterBottom >
+                        Log in to your app at <Link to="/login">/login</Link>.
+                    </Typography>
                 </li>
 
                 <li>
-                    <p>
+                    <Typography variant="body1" gutterBottom >
                         Check the headline report on the <Link to="/">Home route</Link>.
-                    </p>
-                    <p className={styles.imageFrame}>
-                        <img src={kpiUri} alt="KPI example" />
-                    </p>
-                    <p>
+                    </Typography>
+
+                     <Box
+                        component="div"
+                        sx={{ backgroundColor: '#f2f2f2', border: "30px solid #f2f2f2" }}
+                    >
+                        <Box
+                            component="img"
+                            src={kpiUri}
+                            sx={{ maxWidth: "100%"}}
+                            alt="KPI example"
+                        />
+                    </Box>
+                    <Typography variant="body1" gutterBottom >
                         Most likely, the value of your headline report would be different. As long as you do
                         not see an error, you are good to go. If you do see an error, please use one of the{" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/support_options.html">
                             GoodData.UI support options
                         </a>
                         .
-                    </p>
+                    </Typography>
                 </li>
             </ol>
-            <p>Now, you are ready to play around with your app.</p>
 
-            <h2>Things to try next</h2>
+            <Typography variant="body1" gutterBottom > Now, you are ready to play around with your app.  </Typography>
 
-            <h3>Add a page (route)</h3>
+            <Typography variant="h5" component="div" gutterBottom >
+                <Box sx={{ fontWeight: 'bold' }}>
+                Things to try next
+                </Box>
+            </Typography>
+
+            <Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: 'bold' }} >
+                Add a page (route)
+            </Typography>
+
             <ol>
                 <li>
-                    Duplicate a route in <Code>/src/routes</Code>.
+                    <Typography variant="body1" gutterBottom >
+                        Duplicate a route in <Code>/src/routes</Code>.
+                    </Typography>
                 </li>
                 <li>
-                    Add the new route to <Code>/src/routes/AppRouter.tsx</Code>.
+                    <Typography variant="body1" gutterBottom >
+                        Add the new route to <Code>/src/routes/AppRouter.tsx</Code>.
+                    </Typography>
                 </li>
             </ol>
 
-            <h3>Add a link to the navigation / menu</h3>
-            <p>
+            <Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: 'bold' }} >
+                Add a link to the navigation / menu
+            </Typography>
+
+            <Typography variant="body1" gutterBottom >
                 Add a new <Code>{`<NavLink>`}</Code> component to{" "}
                 <Code>/src/components/Header/Links.tsx</Code>.
-            </p>
+            </Typography>
 
-            <h3>Add the multi-tenant functionality and the optional workspace picker</h3>
+            <Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: 'bold' }} >
+                Add the multi-tenant functionality and the optional workspace picker
+            </Typography>
+
+            <Typography variant="body1" gutterBottom >
             <ul>
                 <li>
                     The <Code>Workspace</Code> context object in <Code>/src/contexts/Workspace.tsx</Code>{" "}
@@ -146,16 +189,22 @@ const Welcome: React.FC = () => {
                     <Code>workspaceFilter</Code> in <Code>/src/constants.ts</Code>.
                 </li>
             </ul>
+            </Typography>
 
-            <h3>Add an example from the Examples Gallery</h3>
-            <p>
+            <Typography variant="h5" component="div" gutterBottom sx={{ fontWeight: 'bold' }}>
+                Add an example from the Examples Gallery
+            </Typography>
+
+            <Typography variant="body1" gutterBottom >
                 Explore the <a href="https://gdui-examples.herokuapp.com/">Examples Gallery</a> and try out
                 some code snippets.
-            </p>
+            </Typography>
 
-            <h3>
+            <Typography variant="h5" component="div" gutterBottom sx={{ fontWeight: 'bold' }}>
                 Deploy your app to <a href="https://www.heroku.com/">Heroku</a>
-            </h3>
+            </Typography>
+
+            <Typography variant="body1" gutterBottom >
             <ol>
                 <li>
                     <p>
@@ -168,9 +217,8 @@ const Welcome: React.FC = () => {
                     <Pre>{`heroku create $APP_NAME --buildpack mars/create-react-app`}</Pre>
                 </li>
                 <li>
-                    <p>Commit your changes.</p>
-                    <Pre>{`git add .
-git commit -m "Setup Heroku deployment"`}</Pre>
+                    Commit your changes.
+                    <Pre>{`git add .git commit -m "Setup Heroku deployment"`}</Pre>
                 </li>
                 <li>
                     Send a request to <a href="https://support.gooddata.com/">GoodData Support</a> to allow
@@ -184,11 +232,11 @@ git commit -m "Setup Heroku deployment"`}</Pre>
                     will see a cross-domain error message.
                 </li>
                 <li>
-                    <p>Trigger deployment, and open your app in a browser.</p>
-                    <Pre>{`git push heroku master
-heroku open`}</Pre>
+                    Trigger deployment, and open your app in a browser.
+                    <Pre>{`git push heroku master heroku open`}</Pre>
                 </li>
             </ol>
+            </Typography>
         </Page>
     );
 };

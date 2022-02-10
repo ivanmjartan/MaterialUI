@@ -4,16 +4,23 @@ import { BackendProvider } from "@gooddata/sdk-ui";
 import AppRouter from "./routes/AppRouter";
 import { useAuth } from "./contexts/Auth";
 import { WorkspaceListProvider } from "./contexts/WorkspaceList";
+import CssBaseline from '@mui/material/CssBaseline';
+import {CustomTheme} from "./components/Theme/CustomTheme";
 
-function App() {
+const App: React.FC = () => {
     const { backend } = useAuth();
 
     return (
-        <BackendProvider backend={backend}>
-            <WorkspaceListProvider>
-                <AppRouter />
-            </WorkspaceListProvider>
-        </BackendProvider>
+        <>
+            <CssBaseline />
+            <BackendProvider backend={backend}>
+                <WorkspaceListProvider>
+                    <CustomTheme>
+                        <AppRouter />
+                    </CustomTheme>
+                </WorkspaceListProvider>
+            </BackendProvider>
+        </>
     );
 }
 

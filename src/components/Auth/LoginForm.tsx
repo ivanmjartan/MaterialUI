@@ -38,7 +38,7 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 open={Boolean(loginError)}
             >
-                <Alert severity="error" >{loginError}</Alert>
+                <Alert severity="error" variant="filled">{loginError}</Alert>
             </Snackbar>
             }
             <form onSubmit={handleSubmit} className={cx(styles.Login, "s-login-form")}>
@@ -79,7 +79,6 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
                     name="email"
                     label="E-mail"
                     autoComplete="e-mail"
-                    variant="standard"
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -98,7 +97,6 @@ const LoginFormComponent: React.FC<MyFormProps & FormikProps<FormValues>> = (pro
                     type="password"
                     name="password"
                     autoComplete="current-password"
-                    variant="standard"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}

@@ -1,9 +1,11 @@
 import React from "react";
-
+import  Components  from "../components/Components/Components";
 import Page from "../components/Page";
 
 const Home: React.FC = () => {
-    return <Page>Place your content here&hellip;</Page>;
+    return <Page>
+        <Components />
+    </Page>;
 };
 
 export default Home;

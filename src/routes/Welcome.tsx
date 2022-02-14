@@ -29,14 +29,14 @@ const Welcome: React.FC = () => {
                     component="img"
                     src={successUri}
                 />
-                <Typography variant="h5" component="div" gutterBottom color="success.main">
+                <Typography variant="h5" component="h1" gutterBottom color="success.main">
                     Congratulations!
                     <br />
                     Your GoodData-powered app is created.
                 </Typography>
             </Box>
             <br />
-            <Typography variant="h5" component="div" gutterBottom >
+            <Typography variant="h5" component="div" gutterBottom>
                 <Box sx={{ fontWeight: 'bold' }}>
                     Your new GoodData-powered app is ready!
                 </Box>

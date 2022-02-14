@@ -1,37 +1,25 @@
 import React from "react"
-import { Typography, makeStyles, Button, Grid } from "@material-ui/core"
-
+import { Box, Button, Typography } from "@mui/material"
 import componentSamples from "./Samples"
 
-const useStyles = makeStyles(theme => ({
-  sampleItem: {
-    marginBottom: theme.spacing(10),
-    width: "100%",
-    maxWidth: 1000,
-    paddingLeft: theme.spacing(4),
-    margin: "auto",
-  },
-  inset: {},
-  docsButton: {
-    marginLeft: theme.spacing(2),
-  },
-  sampleContainer: {
-    maxWidth: 1000,
-    padding: theme.spacing(),
-    margin: "auto",
-  },
-}))
-
 const MuiComponentSamples = () => {
-  const classes = useStyles()
   return (
-    <div className={classes.sampleContainer}>
+    <Box sx={{
+      maxWidth: 1000,
+      padding:2,
+      margin: "auto",
+    }}>
       <Typography variant="h4" gutterBottom>
         Material-UI Components
       </Typography>
       {componentSamples.map(({ id, title, component, docs }) => (
-        <div key={id} id={id}>
-          <Grid container justify="space-between" alignItems="center">
+        <Box key={id} id={id} sx={{paddingBottom:2}}>
+          <Box sx={{
+            display:"flex",
+            justifyContent:"space-between",
+            alignItems:"center",
+            paddingBottom:2,
+          }}>
             <Typography variant="h5" gutterBottom>
               {title}
             </Typography>
@@ -45,11 +33,18 @@ const MuiComponentSamples = () => {
             >
               Docs
             </Button>
-          </Grid>
-          <div className={classes.sampleItem}>{component}</div>
-        </div>
+          </Box>
+          <Box sx={{
+            marginBottom: 10,
+            width: "100%",
+            maxWidth: 1000,
+            paddingLeft: 4,
+            margin: "auto",
+          }} >
+            {component}</Box>
+        </Box>
       ))}
-    </div>
+    </Box>
   )
 }
 

@@ -109,6 +109,18 @@ const RedditTextField = styled((props: TextFieldProps) => (
 
 const Components: React.FC = () =>{
     return <>
+
+<TextField
+          label="With normal TextField"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '25ch' }}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+          }}
+        />
+
+    <br/>
+    <br/>
     <GroupedSelect />
     <FormControl fullWidth>
   <InputLabel id="demo-simple-select-label">Age</InputLabel>

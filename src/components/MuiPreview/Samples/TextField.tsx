@@ -1,8 +1,7 @@
 import React from "react"
-import TextField from "@material-ui/core/TextField"
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { Box, TextField, Typography } from "@mui/material"
 
-const useStyles = makeStyles((theme: Theme) =>
+/*const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       "& > div > *": {
@@ -11,14 +10,26 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
   })
-)
+)*/
+
+const rowStyles =  () =>{
+  return {
+   "& > div": {
+      margin: 1,
+      width: "25ch",
+    },
+  };
+}
 
 export default function TextFieldExample() {
-  const classes = useStyles()
-
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div>
+    <form noValidate autoComplete="off">
+      <Typography variant="h6" id="standard-fields">
+        Standard TextFields
+      </Typography>
+      <Box sx={
+        rowStyles()
+      }>
         <TextField
           required
           id="standard-required"
@@ -66,8 +77,13 @@ export default function TextFieldExample() {
           defaultValue="Default Value"
           helperText="Some important text"
         />
-      </div>
-      <div>
+      </Box>
+      {/* <Typography variant="h6" id="standard-fields">
+        Filled TextFields
+      </Typography>
+      <Box sx={
+        rowStyles()
+      }>
         <TextField
           required
           id="filled-required"
@@ -128,8 +144,15 @@ export default function TextFieldExample() {
           helperText="Some important text"
           variant="filled"
         />
-      </div>
-      <div>
+      </Box>
+
+      <Typography variant="h6" id="standard-fields">
+        Outlined TextFields
+      </Typography>
+
+      <Box sx={
+        rowStyles()
+      }>
         <TextField
           required
           id="outlined-required"
@@ -190,7 +213,7 @@ export default function TextFieldExample() {
           helperText="Some important text"
           variant="outlined"
         />
-      </div>
+      </Box> */}
     </form>
   )
 }

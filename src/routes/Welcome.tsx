@@ -1,19 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import Page from "../components/Page";
-
-import styles from "./Welcome.module.scss";
-
 import kpiUri from "../media/kpi.png";
 import successUri from "../media/success.svg";
 import { Box, Typography } from "@mui/material";
 
-const Code: React.FC = ({ children, ...restProps }) => (
-    <code className={styles.code} {...restProps}>
+/*
+.code {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: $color-grey;
+    color: inherit;
+}
+<code className={styles.code} {...restProps}>
+
+*/
+
+const Code: React.FC = (props) => {
+    const { children } = props;
+
+    return <Box sx={{
+        display: "inline-block",
+        padding: "5px 10px",
+        bgcolor: (theme) => theme.palette.mode === 'light' ? theme.palette.grey[100]: theme.palette.grey[500],
+        color: 'text.primary'
+    }}>
         {children}
-    </code>
-);
+    </Box>
+};
+
 const Pre: React.FC = ({ children }) => (
     <Box component="pre" sx={{ padding: "10px", borderLeft: "3px solid ", borderLeftColor: "secondary.main", color: "success.main"}}>
         {children}

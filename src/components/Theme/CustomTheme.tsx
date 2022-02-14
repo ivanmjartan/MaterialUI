@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
+import { ColorModeContext } from "./ColorModeContext";
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -7,9 +8,15 @@ declare module '@mui/material/Button' {
   }
 }
 
-const currentTheme = createTheme(
-  {
+declare module "@mui/material/styles" {
+  interface DefaultTheme {
+    spacing: (spacing: number) => string;
+  }
+}
+
+const themeOption: ThemeOptions = {
     palette: {
+      mode: 'light',
       primary: {
         main: '#1c0d3f',
       },
@@ -24,6 +31,11 @@ const currentTheme = createTheme(
     },
     components: {
       MuiTextField: {
+        defaultProps: {
+          variant: "standard" // define default for all TextBoxes
+        },
+      },
+      MuiSelect: {
         defaultProps: {
           variant: "standard" // define default for all TextBoxes
         },
@@ -83,14 +95,39 @@ const currentTheme = createTheme(
         ],
       }
     },
-  }
-);
+  };
 
 export const CustomTheme: React.FC = (props) => {
   const { children } = props;
+  const [mode, setMode] = React.useState<'light' | 'dark'>('light');
+
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        ...themeOption,
+        palette: {
+          ...themeOption.palette,
+          mode,
+        },
+      }),
+    [mode],
+  );
+
+
   return (
-    <ThemeProvider theme={currentTheme}>
-      {children}
-    </ThemeProvider>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }

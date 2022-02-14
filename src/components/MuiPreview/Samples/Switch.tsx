@@ -1,7 +1,6 @@
 import React from "react"
-import FormGroup from "@material-ui/core/FormGroup"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Switch from "@material-ui/core/Switch"
+import { FormControlLabel, FormGroup, Switch } from "@mui/material"
+
 
 export default function SwitchExample() {
   const [state, setState] = React.useState({

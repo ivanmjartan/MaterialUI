@@ -1,30 +1,41 @@
 import React from "react"
-import AppBarExample from "./AppBar"
-import AccordionExample from "./Accordion"
-import TypographyExample from "./Typography"
-import ButtonExample from "./Button"
-import CheckboxesExample from "./Checkboxes"
+import AccordionExample from "./Accordion";
+import AppBarExample from "./AppBar";
+import AvatarExample from "./Avatar";
+import ButtonExample from "./Button";
+import BadgeExample from "./Badge";
+import TextFieldExample from "./TextField";
+import SelectExample from "./Select";
+import TypographyExample from "./Typography";
+import SwitchExample from "./Switch"
+import TooltipExample from "./Tooltip";
+import CheckboxesExample from "./Checkboxes";
+import RadioExample from "./RadioGroup";
+import ListExample from "./List";
+import ChipSelect from "./ChipSelect";
+
+/*
 import FabExample from "./FAB"
-import RadioExample from "./RadioGroup"
+
 import TabsExample from "./Tabs"
 import CardExample from "./Card"
 import ProgressExample from "./Progress"
 import SnackbarExample from "./Snackbar"
-import AvatarExample from "./Avatar"
+
 import BadgeExample from "./Badge"
 import ChipExample from "./Chip"
 import BottomNavigationExample from "./BottomNavigation"
 import DialogExample from "./Dialog"
 import IconExample from "./Icon"
 import MenuExample from "./Menu"
-import SelectExample from "./Select"
+
 import SliderExample from "./Slider"
 import StepperExample from "./Stepper"
-import SwitchExample from "./Switch"
-import TextFieldExample from "./TextField"
+
+
 import TableExample from "./Table"
 import ListExample from "./List"
-import TooltipExample from "./Tooltip"
+*/
 
 // items skipped for now:
 // Button Group
@@ -33,7 +44,62 @@ import TooltipExample from "./Tooltip"
 // Drawer
 
 // Alphabetically sorted list of all Material-UI component examples
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
+  {
+    id: "TextField",
+    title: "TextField",
+    component: <TextFieldExample />,
+    docs: "https://material-ui.com/components/text-fields/",
+  },
+  {
+    id: "Select",
+    title: "Select",
+    component: <SelectExample />,
+    docs: "https://material-ui.com/components/selects/",
+  },
+  {
+    id: "ChipSelect",
+    title: "Chip Select",
+    component: <ChipSelect />,
+    docs: "https://mui.com/components/selects/#chip",
+  },
+  {
+    id: "Buttons",
+    title: "Buttons",
+    component: <ButtonExample />,
+    docs: "https://material-ui.com/components/buttons/",
+  },
+  {
+    id: "Checkboxes",
+    title: "Checkboxes",
+    component: <CheckboxesExample />,
+    docs: "https://material-ui.com/components/checkboxes/",
+  },
+  {
+    id: "Radio",
+    title: "Radio",
+    component: <RadioExample />,
+    docs: "https://material-ui.com/components/radio-buttons/",
+  },
+  {
+    id: "Switch",
+    title: "Switch",
+    component: <SwitchExample />,
+    docs: "https://material-ui.com/components/switches/",
+  },
+  {
+    id: "Typography",
+    title: "Typography",
+    component: <TypographyExample />,
+    docs: "https://material-ui.com/components/typography/",
+  },
+  {
+    id: "List",
+    title: "List",
+    component: <ListExample />,
+    docs: "https://material-ui.com/components/lists/",
+  },
   {
     id: "Accordion",
     title: "Accordion",
@@ -59,29 +125,25 @@ export default [
     docs: "https://material-ui.com/components/badges/",
   },
   {
+    id: "Tooltip",
+    title: "Tooltip",
+    component: <TooltipExample />,
+    docs: "https://material-ui.com/components/tooltips/",
+  },
+/*  {
     id: "BottomNavigation",
     title: "Bottom Navigation",
     component: <BottomNavigationExample />,
     docs: "https://material-ui.com/components/bottom-navigation/",
-  },
-  {
-    id: "Buttons",
-    title: "Buttons",
-    component: <ButtonExample />,
-    docs: "https://material-ui.com/components/buttons/",
-  },
-  {
+  },*/
+
+ /* {
     id: "Card",
     title: "Card",
     component: <CardExample />,
     docs: "https://material-ui.com/components/cards/",
   },
-  {
-    id: "Checkboxes",
-    title: "Checkboxes",
-    component: <CheckboxesExample />,
-    docs: "https://material-ui.com/components/checkboxes/",
-  },
+
   {
     id: "Chip",
     title: "Chip",
@@ -155,12 +217,6 @@ export default [
     docs: "https://material-ui.com/components/steppers/",
   },
   {
-    id: "Switch",
-    title: "Switch",
-    component: <SwitchExample />,
-    docs: "https://material-ui.com/components/switches/",
-  },
-  {
     id: "Table",
     title: "Table",
     component: <TableExample />,
@@ -171,23 +227,5 @@ export default [
     title: "Tabs",
     component: <TabsExample />,
     docs: "https://material-ui.com/components/tabs/",
-  },
-  {
-    id: "TextField",
-    title: "TextField",
-    component: <TextFieldExample />,
-    docs: "https://material-ui.com/components/text-fields/",
-  },
-  {
-    id: "Tooltip",
-    title: "Tooltip",
-    component: <TooltipExample />,
-    docs: "https://material-ui.com/components/tooltips/",
-  },
-  {
-    id: "Typography",
-    title: "Typography",
-    component: <TypographyExample />,
-    docs: "https://material-ui.com/components/typography/",
-  },
+  },*/
 ]

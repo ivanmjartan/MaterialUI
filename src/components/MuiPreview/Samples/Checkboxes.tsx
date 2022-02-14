@@ -1,25 +1,13 @@
-import React from "react"
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles"
-import FormLabel from "@material-ui/core/FormLabel"
-import FormControl from "@material-ui/core/FormControl"
-import FormGroup from "@material-ui/core/FormGroup"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import FormHelperText from "@material-ui/core/FormHelperText"
-import Checkbox from "@material-ui/core/Checkbox"
+import { Box, Checkbox, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel } from "@mui/material";
+import React from "react";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: "flex",
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-  })
-)
+const formControl = ()=>{
+  return {
+    margin: 3,
+  }
+}
 
 export default function CheckboxesExample() {
-  const classes = useStyles()
   const [state, setState] = React.useState({
     gilad: true,
     jason: false,
@@ -34,8 +22,8 @@ export default function CheckboxesExample() {
   const error = [gilad, jason, antoine].filter(v => v).length !== 2
 
   return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
+    <Box sx={ {display:"flex"}}>
+      <FormControl component="fieldset" sx={formControl()}>
         <FormLabel component="legend">Assign responsibility</FormLabel>
         <FormGroup>
           <FormControlLabel
@@ -67,7 +55,7 @@ export default function CheckboxesExample() {
         required
         error={error}
         component="fieldset"
-        className={classes.formControl}
+        sx={formControl()}
       >
         <FormLabel component="legend">Pick two</FormLabel>
         <FormGroup>
@@ -96,6 +84,6 @@ export default function CheckboxesExample() {
         </FormGroup>
         <FormHelperText>You can display an error</FormHelperText>
       </FormControl>
-    </div>
+    </Box>
   )
 }

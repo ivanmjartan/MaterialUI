@@ -1,34 +1,30 @@
 import React from "react"
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import InputLabel from "@material-ui/core/InputLabel"
-import MenuItem from "@material-ui/core/MenuItem"
-import FormHelperText from "@material-ui/core/FormHelperText"
-import FormControl from "@material-ui/core/FormControl"
-import Select from "@material-ui/core/Select"
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material"
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  })
-)
+const emptySelect = ()=>{
+  return {
+    marginTop: 2,
+  }
+}
+
+const formControl =() =>{
+  return {
+    margin: 1,
+    minWidth: 120,
+  }
+}
 
 export default function SelectExample() {
-  const classes = useStyles()
+  // const classes = useStyles()
   const [age, setAge] = React.useState("")
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string)
   }
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -41,7 +37,7 @@ export default function SelectExample() {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -58,12 +54,14 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Some important helper text</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <Select
           value={age}
           onChange={handleChange}
           displayEmpty
-          className={classes.selectEmpty}
+          sx={
+            emptySelect()
+          }
           inputProps={{ "aria-label": "Without label" }}
         >
           <MenuItem value="">
@@ -75,7 +73,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Without label</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel shrink id="demo-simple-select-placeholder-label-label">
           Age
         </InputLabel>
@@ -85,7 +83,9 @@ export default function SelectExample() {
           value={age}
           onChange={handleChange}
           displayEmpty
-          className={classes.selectEmpty}
+          sx={
+            emptySelect()
+          }
         >
           <MenuItem value="">
             <em>None</em>
@@ -96,7 +96,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Label + placeholder</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl} disabled>
+      <FormControl sx={formControl()} disabled>
         <InputLabel id="demo-simple-select-disabled-label">Name</InputLabel>
         <Select
           labelId="demo-simple-select-disabled-label"
@@ -113,7 +113,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Disabled</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl} error>
+      <FormControl sx={formControl()} error>
         <InputLabel id="demo-simple-select-error-label">Name</InputLabel>
         <Select
           labelId="demo-simple-select-error-label"
@@ -131,7 +131,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Error</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-readonly-label">Name</InputLabel>
         <Select
           labelId="demo-simple-select-readonly-label"
@@ -149,7 +149,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Read only</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
@@ -167,12 +167,14 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Auto width</FormHelperText>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <Select
           value={age}
           onChange={handleChange}
           displayEmpty
-          className={classes.selectEmpty}
+          sx={
+            emptySelect()
+          }
           inputProps={{ "aria-label": "Without label" }}
         >
           <MenuItem value="" disabled>
@@ -184,14 +186,16 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Placeholder</FormHelperText>
       </FormControl>
-      <FormControl required className={classes.formControl}>
+      <FormControl required sx={formControl()}>
         <InputLabel id="demo-simple-select-required-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
           value={age}
           onChange={handleChange}
-          className={classes.selectEmpty}
+          sx={
+            emptySelect()
+          }
         >
           <MenuItem value="">
             <em>None</em>
@@ -202,7 +206,7 @@ export default function SelectExample() {
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
-      <FormControl variant="outlined" className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
@@ -219,7 +223,7 @@ export default function SelectExample() {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      <FormControl variant="filled" className={classes.formControl}>
+      <FormControl sx={formControl()}>
         <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"

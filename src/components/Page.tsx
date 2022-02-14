@@ -1,12 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import cx from "classnames";
-
-//import Header from "./Header/Header";
 import Footer from "./Footer";
 
 import styles from "./Page.module.scss";
 import AppHeader from "./HeaderMui/AppHeader";
+import { Box } from "@mui/material";
 
 interface IPageProps {
     className?: string;
@@ -21,7 +20,7 @@ const Page: React.FC<IPageProps> = ({
     title = "GoodData App",
 }) => {
     return (
-        <div className={cx(styles.Page, className)}>
+        <Box className={cx(styles.Page, className)} sx={{backgroundColor:"background.default"}}>
             <Helmet>
                 <title>{title}</title>
                 <link
@@ -33,7 +32,7 @@ const Page: React.FC<IPageProps> = ({
             <AppHeader />
             <main className={cx(styles.Main, mainClassName, "s-page")}>{children}</main>
             <Footer />
-        </div>
+        </Box>
     );
 };
 

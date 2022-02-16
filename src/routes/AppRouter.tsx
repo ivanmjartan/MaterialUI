@@ -35,7 +35,7 @@ const AppRouter: React.FC = () => {
                     <Route exact path="/logout" component={Logout} />
                     <Route exact path="/gallery" component={MuiGallery} />
                     <Route exact path="/performance" component={Performance} />
-                    {/* DELETE THIS LINE */} <Redirect to="/welcome" />
+                    {/* DELETE THIS LINE */}
                     {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
                     {/* <RedirectIfNotLoggedIn /> */}
                 </WorkspaceProvider>

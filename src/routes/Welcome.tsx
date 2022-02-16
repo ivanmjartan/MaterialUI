@@ -39,7 +39,7 @@ const Welcome: React.FC = () => {
                 <Typography variant="h5" component="h1" gutterBottom color="success.main">
                     Congratulations!
                     <br />
-                    Your GoodData-powered app is created.
+                    Your GoodData-powered app is created and use MUI framework
                 </Typography>
             </Box>
             <br />

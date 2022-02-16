@@ -25,6 +25,7 @@ const themeOption: ThemeOptions = {
       },
     },
     typography: {
+      fontSize: 12,
       button: {
         textTransform: "none", //disable uppercase text label for all buttons
       }
@@ -58,6 +59,9 @@ const themeOption: ThemeOptions = {
             borderRadius: "3px",
             paddingLeft:"5px",
             boxShadow: 'inset 0 1px 1px 0 rgb(31 53 74 / 15%)', //color from palette
+            ".MuiInput-input": {
+              paddingLeft:"5px",
+            },
             transition: theme.transitions.create([
               'border-color',
               'background-color',
@@ -72,6 +76,19 @@ const themeOption: ThemeOptions = {
           }
         }
       },
+      MuiList: {
+        /*styleOverrides: {
+          root: {
+            paddingTop: 0,
+            paddingBottom: 0
+          }
+        }*/
+      },
+      MuiMenuItem:{
+        defaultProps:{
+          dense:true
+        }
+      },
       MuiButton: {
         styleOverrides: {
           root: {
@@ -80,14 +97,14 @@ const themeOption: ThemeOptions = {
         },
         variants: [
           {
-            props: { variant: 'dashed' },
+            props: { variant: 'dashed' }, // new variant base on props dashed
             style: {
               textTransform: 'none',
               border: `2px dashed red`,
             },
           },
           {
-            props: { variant: 'dashed', color: 'secondary' },
+            props: { variant: 'dashed', color: 'secondary' }, // new variant dashed and secondary color
             style: {
               border: `4px dashed blue`,
             },

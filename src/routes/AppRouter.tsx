@@ -9,6 +9,7 @@ import Logout from "./Logout";
 import Welcome from "./Welcome";
 import Home from "./Home";
 import MuiGallery from "./MuiGallery";
+import Performance from "./Performance";
 
 import styles from "./AppRouter.module.scss";
 
@@ -33,6 +34,7 @@ const AppRouter: React.FC = () => {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
                     <Route exact path="/gallery" component={MuiGallery} />
+                    <Route exact path="/performance" component={Performance} />
                     {/* DELETE THIS LINE */} <Redirect to="/welcome" />
                     {/* Uncomment the next line if you want to redirect unauthorized users to login form */}
                     {/* <RedirectIfNotLoggedIn /> */}

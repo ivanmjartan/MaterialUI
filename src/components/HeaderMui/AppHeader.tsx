@@ -20,7 +20,7 @@ interface IMainMenuItem {
   link: string;
 }
 
-const pages:IMainMenuItem[] = [{title:'Home', link:"/"} , {title:'Welcome', link:"/welcome"},  {title:'Gallery', link:"/gallery"}];
+const pages:IMainMenuItem[] = [{title:'Home', link:"/"} , {title:'Welcome', link:"/welcome"},  {title:'Gallery', link:"/gallery"}, {title:'Performance', link:"/performance"}];
 
 const AppHeader:React.FC = (_props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -66,17 +66,17 @@ const AppHeader:React.FC = (_props) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.title} onClick={handleCloseNavMenu} component={NavLink} to={page.link} >
-                  <Typography textAlign="center">{page.title}</Typography>
+                <MenuItem key={`menu-${page.title}`} onClick={handleCloseNavMenu} component={NavLink} to={page.link} >
+                  <Typography key={`text-${page.title}`} textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <NavLink to={page.link}  style={{ textDecoration: "none" }} >
+              <NavLink  key={`link-${page.title}`} to={page.link}  style={{ textDecoration: "none" }} >
               <Button
-                key={page.title}
+                key={`button-${page.title}`}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

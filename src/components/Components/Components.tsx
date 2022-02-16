@@ -170,7 +170,7 @@ const Components: React.FC = () =>{
         <br/>
         <br/>
 
-        <Button variant="dashed" > kokot </Button>
+        <Button variant="dashed" > Bla bla </Button>
         <br/>
         <br/>
         <FormControl variant="standard" >

@@ -5,16 +5,7 @@ import kpiUri from "../media/kpi.png";
 import successUri from "../media/success.svg";
 import { Box, Typography } from "@mui/material";
 
-/*
-.code {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: $color-grey;
-    color: inherit;
-}
-<code className={styles.code} {...restProps}>
 
-*/
 
 const Code: React.FC = (props) => {
     const { children } = props;
@@ -28,6 +19,7 @@ const Code: React.FC = (props) => {
         {children}
     </Box>
 };
+
 
 const Pre: React.FC = ({ children }) => (
     <Box component="pre" sx={{ padding: "10px", borderLeft: "3px solid ", borderLeftColor: "secondary.main", color: "success.main"}}>
@@ -66,14 +58,14 @@ const Welcome: React.FC = () => {
 
             <ol>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         In <Code>/src/constants.ts</Code>, check that <Code>backend</Code> is set to your
                         domain URI. For example, <Code>https://secure.gooddata.com</Code> or{" "}
                         <Code>https://developer.na.gooddata.com</Code>.
                     </Typography>
                 </li>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         In the root of the boilerplate, run <Code>yarn refresh-md</Code>, the terminal then
                         will prompt you to enter <Code>Username/Password</Code> and <Code>workspace</Code>
                         selection.
@@ -92,10 +84,10 @@ const Welcome: React.FC = () => {
                     </Typography>
                 </li>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         In <Code>Home.tsx</Code>, replace <Code>Place your content here</Code> with actual code.
                     </Typography>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         For example, <Code> {`<InsightView insight={Md.Insights.Headline}/>`}</Code>. We
                         access the <Code>Headline</Code> identifier through the generated <Code>MD</Code>
                         objects.
@@ -105,7 +97,7 @@ const Welcome: React.FC = () => {
                     </Typography>
                 </li>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         In <Code>/src/routes/AppRouter.tsx</Code>, find the line that says{" "}
                         <Code>DELETE THIS LINE</Code>, and delete it.
                         <br />
@@ -114,13 +106,12 @@ const Welcome: React.FC = () => {
                     </Typography>
                 </li>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         Log in to your app at <Link to="/login">/login</Link>.
                     </Typography>
                 </li>
-
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         Check the headline report on the <Link to="/">Home route</Link>.
                     </Typography>
 
@@ -135,7 +126,7 @@ const Welcome: React.FC = () => {
                             alt="KPI example"
                         />
                     </Box>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         Most likely, the value of your headline report would be different. As long as you do
                         not see an error, you are good to go. If you do see an error, please use one of the{" "}
                         <a href="https://sdk.gooddata.com/gooddata-ui/docs/support_options.html">
@@ -160,12 +151,12 @@ const Welcome: React.FC = () => {
 
             <ol>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         Duplicate a route in <Code>/src/routes</Code>.
                     </Typography>
                 </li>
                 <li>
-                    <Typography variant="body1" gutterBottom >
+                    <Typography variant="body1" component="div" gutterBottom >
                         Add the new route to <Code>/src/routes/AppRouter.tsx</Code>.
                     </Typography>
                 </li>
@@ -175,7 +166,7 @@ const Welcome: React.FC = () => {
                 Add a link to the navigation / menu
             </Typography>
 
-            <Typography variant="body1" gutterBottom >
+            <Typography variant="body1" component="div" gutterBottom >
                 Add a new <Code>{`<NavLink>`}</Code> component to{" "}
                 <Code>/src/components/Header/Links.tsx</Code>.
             </Typography>
@@ -184,7 +175,7 @@ const Welcome: React.FC = () => {
                 Add the multi-tenant functionality and the optional workspace picker
             </Typography>
 
-            <Typography variant="body1" gutterBottom >
+            <Typography variant="body1" component="div" gutterBottom >
             <ul>
                 <li>
                     The <Code>Workspace</Code> context object in <Code>/src/contexts/Workspace.tsx</Code>{" "}
@@ -210,7 +201,7 @@ const Welcome: React.FC = () => {
                 Add an example from the Examples Gallery
             </Typography>
 
-            <Typography variant="body1" gutterBottom >
+            <Typography variant="body1" component="div" gutterBottom >
                 Explore the <a href="https://gdui-examples.herokuapp.com/">Examples Gallery</a> and try out
                 some code snippets.
             </Typography>
@@ -219,18 +210,19 @@ const Welcome: React.FC = () => {
                 Deploy your app to <a href="https://www.heroku.com/">Heroku</a>
             </Typography>
 
-            <Typography variant="body1" gutterBottom >
+           <Typography variant="body1" component="div" gutterBottom >
             <ol>
                 <li>
-                    <p>
+
                         Create a new Heroku app with the{" "}
                         <a href="https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack">
                             create-react-app buildpack
                         </a>{" "}
                         (<Code>mars/create-react-app</Code>).
-                    </p>
+
                     <Pre>{`heroku create $APP_NAME --buildpack mars/create-react-app`}</Pre>
                 </li>
+
                 <li>
                     Commit your changes.
                     <Pre>{`git add .git commit -m "Setup Heroku deployment"`}</Pre>

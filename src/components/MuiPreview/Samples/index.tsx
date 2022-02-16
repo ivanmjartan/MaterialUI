@@ -13,50 +13,37 @@ import CheckboxesExample from "./Checkboxes";
 import RadioExample from "./RadioGroup";
 import ListExample from "./List";
 import ChipSelect from "./ChipSelect";
-
-/*
-import FabExample from "./FAB"
-
-import TabsExample from "./Tabs"
-import CardExample from "./Card"
-import ProgressExample from "./Progress"
-import SnackbarExample from "./Snackbar"
-
-import BadgeExample from "./Badge"
-import ChipExample from "./Chip"
-import BottomNavigationExample from "./BottomNavigation"
-import DialogExample from "./Dialog"
-import IconExample from "./Icon"
-import MenuExample from "./Menu"
-
-import SliderExample from "./Slider"
-import StepperExample from "./Stepper"
+import AutoComplete from "./AutoComplete";
+import AutoCompleteAsync from "./AutoCompleteAsync";
 
 
-import TableExample from "./Table"
-import ListExample from "./List"
-*/
-
-// items skipped for now:
-// Button Group
-// Date/Time inputs
-// Transfer List
-// Drawer
-
-// Alphabetically sorted list of all Material-UI component examples
+// List of all Material-UI component examples
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
+
+  {
+    id: "AutoCompleteAsync",
+    title: "AutoCompleteAsync",
+    component: <AutoCompleteAsync />,
+    docs: "https://mui.com/components/autocomplete/",
+  },
+  {
+    id: "AutoComplete",
+    title: "AutoComplete",
+    component: <AutoComplete />,
+    docs: "https://mui.com/components/autocomplete/",
+  },
   {
     id: "TextField",
     title: "TextField",
     component: <TextFieldExample />,
-    docs: "https://material-ui.com/components/text-fields/",
+    docs: "https://mui.com/components/text-fields/",
   },
   {
     id: "Select",
     title: "Select",
     component: <SelectExample />,
-    docs: "https://material-ui.com/components/selects/",
+    docs: "https://mui.com/components/selects/",
   },
   {
     id: "ChipSelect",
@@ -68,164 +55,164 @@ export default [
     id: "Buttons",
     title: "Buttons",
     component: <ButtonExample />,
-    docs: "https://material-ui.com/components/buttons/",
+    docs: "https://mui.com/components/buttons/",
   },
   {
     id: "Checkboxes",
     title: "Checkboxes",
     component: <CheckboxesExample />,
-    docs: "https://material-ui.com/components/checkboxes/",
+    docs: "https://mui.com/components/checkboxes/",
   },
   {
     id: "Radio",
     title: "Radio",
     component: <RadioExample />,
-    docs: "https://material-ui.com/components/radio-buttons/",
+    docs: "https://mui.com/components/radio-buttons/",
   },
   {
     id: "Switch",
     title: "Switch",
     component: <SwitchExample />,
-    docs: "https://material-ui.com/components/switches/",
+    docs: "https://mui.com/components/switches/",
   },
   {
     id: "Typography",
     title: "Typography",
     component: <TypographyExample />,
-    docs: "https://material-ui.com/components/typography/",
+    docs: "https://mui.com/components/typography/",
   },
   {
     id: "List",
     title: "List",
     component: <ListExample />,
-    docs: "https://material-ui.com/components/lists/",
+    docs: "https://mui.com/components/lists/",
   },
   {
     id: "Accordion",
     title: "Accordion",
     component: <AccordionExample />,
-    docs: "https://material-ui.com/components/accordion/",
+    docs: "https://mui.com/components/accordion/",
   },
   {
     id: "Appbar",
     title: "App Bar",
     component: <AppBarExample />,
-    docs: "https://material-ui.com/components/app-bar/",
+    docs: "https://mui.com/components/app-bar/",
   },
   {
     id: "Avatar",
     title: "Avatar",
     component: <AvatarExample />,
-    docs: "https://material-ui.com/components/avatars/",
+    docs: "https://mui.com/components/avatars/",
   },
   {
     id: "Badge",
     title: "Badge",
     component: <BadgeExample />,
-    docs: "https://material-ui.com/components/badges/",
+    docs: "https://mui.com/components/badges/",
   },
   {
     id: "Tooltip",
     title: "Tooltip",
     component: <TooltipExample />,
-    docs: "https://material-ui.com/components/tooltips/",
+    docs: "https://mui.com/components/tooltips/",
   },
 /*  {
     id: "BottomNavigation",
     title: "Bottom Navigation",
     component: <BottomNavigationExample />,
-    docs: "https://material-ui.com/components/bottom-navigation/",
+    docs: "https://mui.com/components/bottom-navigation/",
   },*/
 
  /* {
     id: "Card",
     title: "Card",
     component: <CardExample />,
-    docs: "https://material-ui.com/components/cards/",
+    docs: "https://mui.com/components/cards/",
   },
 
   {
     id: "Chip",
     title: "Chip",
     component: <ChipExample />,
-    docs: "https://material-ui.com/components/chips/",
+    docs: "https://mui.com/components/chips/",
   },
   {
     id: "Dialog",
     title: "Dialog",
     component: <DialogExample />,
-    docs: "https://material-ui.com/components/dialogs/",
+    docs: "https://mui.com/components/dialogs/",
   },
   {
     id: "FloatingActionButton",
     title: "Floating Action Button",
     component: <FabExample />,
-    docs: "https://material-ui.com/components/floating-action-button/",
+    docs: "https://mui.com/components/floating-action-button/",
   },
   {
     id: "Icon",
     title: "Icon",
     component: <IconExample />,
-    docs: "https://material-ui.com/components/icons/",
+    docs: "https://mui.com/components/icons/",
   },
   {
     id: "List",
     title: "List",
     component: <ListExample />,
-    docs: "https://material-ui.com/components/lists/",
+    docs: "https://mui.com/components/lists/",
   },
   {
     id: "Menu",
     title: "Menu",
     component: <MenuExample />,
-    docs: "https://material-ui.com/components/menus/",
+    docs: "https://mui.com/components/menus/",
   },
   {
     id: "Progress",
     title: "Progress",
     component: <ProgressExample />,
-    docs: "https://material-ui.com/components/progress/",
+    docs: "https://mui.com/components/progress/",
   },
   {
     id: "Radio",
     title: "Radio",
     component: <RadioExample />,
-    docs: "https://material-ui.com/components/radio-buttons/",
+    docs: "https://mui.com/components/radio-buttons/",
   },
   {
     id: "Select",
     title: "Select",
     component: <SelectExample />,
-    docs: "https://material-ui.com/components/selects/",
+    docs: "https://mui.com/components/selects/",
   },
   {
     id: "Slider",
     title: "Slider",
     component: <SliderExample />,
-    docs: "https://material-ui.com/components/slider/",
+    docs: "https://mui.com/components/slider/",
   },
   {
     id: "Snackbar",
     title: "Snackbar",
     component: <SnackbarExample />,
-    docs: "https://material-ui.com/components/snackbars/",
+    docs: "https://mui.com/components/snackbars/",
   },
   {
     id: "Stepper",
     title: "Stepper",
     component: <StepperExample />,
-    docs: "https://material-ui.com/components/steppers/",
+    docs: "https://mui.com/components/steppers/",
   },
   {
     id: "Table",
     title: "Table",
     component: <TableExample />,
-    docs: "https://material-ui.com/components/tables/",
+    docs: "https://mui.com/components/tables/",
   },
   {
     id: "Tabs",
     title: "Tabs",
     component: <TabsExample />,
-    docs: "https://material-ui.com/components/tabs/",
+    docs: "https://mui.com/components/tabs/",
   },*/
 ]

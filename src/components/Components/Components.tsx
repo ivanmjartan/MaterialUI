@@ -111,7 +111,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 const Components: React.FC = () => {
   return <>
     <Typography variant="h5" component="div" gutterBottom>
-      Mui text filed vs UI-Kit input
+      Mui text field vs UI-Kit input
     </Typography>
     <ItemLayout label={"Text box"} mui={<TextField defaultValue="Hello" />} uiKit={<UIKit value="Hello!" />} />
     <ItemLayout label={"Text box small"} mui={<TextField defaultValue="Hello" size="small" />} uiKit={<UIKit value="Hello!" isSmall />} />
